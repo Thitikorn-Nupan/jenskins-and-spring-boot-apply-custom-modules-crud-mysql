@@ -4,7 +4,7 @@ pipeline {
     agent any
     environment {
             // you have to call tru env.<var name> ex, env.DOMAIN
-            JAR_TARGET = 'target/api-using-crud-mysql-v2-0.0.1-SNAPSHOT.jar'
+            JAR_TARGET = 'target/api-using-crud-mysql-0.0.1-SNAPSHOT.jar'
             DOCKER_APP_PORT_REMOTE = '6789'
             DOCKER_DB_USERNAME = 'ttknp'
             DOCKER_DB_PASSWORD = '12345'
