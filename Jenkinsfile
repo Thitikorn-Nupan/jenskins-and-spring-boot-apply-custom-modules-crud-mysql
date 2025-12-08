@@ -11,15 +11,6 @@ pipeline {
     // stages as working Flows tell Pipeline what gonna do
     stages {
 
-            stage('Before initial check software installed') {
-                steps {
-                      sh 'java -version'
-                      sh 'mvn -version'
-                      sh 'git --version'
-                      sh 'docker --version'
-                }
-            }
-
             stage('Before init get key from properties file') {
                 steps {
                     script {
@@ -30,6 +21,7 @@ pipeline {
                         env.DOCKER_DB_PASSWORD = props['DOCKER_DB_PASSWORD']
                         env.DOCKER_DB_NAME = props['DOCKER_DB_NAME']
                         env.DOCKER_DB_PORT_REMOTE = props['DOCKER_DB_PORT_REMOTE']
+                        echo "Dynamic environment variable as DOCKER_APP_PORT_REMOTE set to : ${env.DOCKER_APP_PORT_REMOTE}"
                     }
                     post {
                           success {
@@ -41,6 +33,17 @@ pipeline {
                     }
                 }
            }
+
+
+            stage('Before initial check software installed') {
+                steps {
+                      sh 'java -version'
+                      sh 'mvn -version'
+                      sh 'git --version'
+                      sh 'docker --version'
+                }
+            }
+
 
 
             stage('Checkout git repo') {
