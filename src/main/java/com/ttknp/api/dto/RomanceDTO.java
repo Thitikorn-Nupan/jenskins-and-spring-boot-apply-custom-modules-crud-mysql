@@ -29,10 +29,10 @@ public class RomanceDTO implements ModelRepository<Romance> {
 
 
     //The @PostConstruct annotation in Java marks a method to be run after dependency injection is complete but before the bean goes into service,
-    @PostConstruct
+    /*@PostConstruct
     private void initService() {
         jdbcReadSQLFileHelper.loadScriptRootPath("sql/init_db.sql");
-    }
+    }*/
 
     @Override
     public List<Romance> retrieveAllModels() {
