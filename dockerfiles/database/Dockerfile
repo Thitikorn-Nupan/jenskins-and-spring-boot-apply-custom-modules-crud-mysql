@@ -24,6 +24,9 @@ ENV MYSQL_USER $USERNAME
 ENV MYSQL_PASSWORD $PASSWORD
 ENV MYSQL_DATABASE $DATABASE
 
+# The official MySQL Docker image automatically executes .sh, .sql, and .sql.gz
+COPY ./init_db.sql/ /docker-entrypoint-initdb.d/
+
 # Expose port 3306 to allow connections to the database
 EXPOSE 3306
 
