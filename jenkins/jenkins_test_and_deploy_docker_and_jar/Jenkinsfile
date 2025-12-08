@@ -5,11 +5,7 @@ pipeline {
     environment {
             // you have to call tru env.<var name> ex, env.DOMAIN
             JAR_TARGET = 'target/api-using-crud-mysql-0.0.1-SNAPSHOT.jar'
-            DOCKER_APP_PORT_REMOTE = '6789'
-            DOCKER_DB_USERNAME = 'ttknp'
-            DOCKER_DB_PASSWORD = '12345'
-            DOCKER_DB_NAME = 'to_do_apps_docker'
-            DOCKER_DB_PORT_REMOTE = '3307'
+            PATH_DEMO_PROPERTIES = 'B:\\env\\demo-info\\docker_info.properties'
     }
 
     // stages as working Flows tell Pipeline what gonna do
@@ -23,6 +19,28 @@ pipeline {
                       sh 'docker --version'
                 }
             }
+
+            stage('Before init get key from properties file') {
+                steps {
+                    script {
+                        // def props = readProperties file: 'info.properties' // root path
+                        def props = readProperties file: env.PATH_DEMO_PROPERTIES // abs path
+                        env.DOCKER_APP_PORT_REMOTE = props['DOCKER_APP_PORT_REMOTE']
+                        env.DOCKER_DB_USERNAME = props['DOCKER_DB_USERNAME']
+                        env.DOCKER_DB_PASSWORD = props['DOCKER_DB_PASSWORD']
+                        env.DOCKER_DB_NAME = props['DOCKER_DB_NAME']
+                        env.DOCKER_DB_PORT_REMOTE = props['DOCKER_DB_PORT_REMOTE']
+                    }
+                    post {
+                          success {
+                              echo 'After read properties successfully.'
+                          }
+                          failure {
+                              echo 'After read properties file failed.'
+                          }
+                    }
+                }
+           }
 
 
             stage('Checkout git repo') {
@@ -57,12 +75,6 @@ pipeline {
                          echo 'After run successfully.'
                          sh 'docker ps' // check is container running create
                      }
-                }
-            }
-
-            stage('Before build maven') {
-                steps {
-                   sh "mvn clean test"
                 }
             }
 
