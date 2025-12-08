@@ -21,11 +21,6 @@ pipeline {
                         env.DOCKER_DB_PASSWORD = props['DOCKER_DB_PASSWORD']
                         env.DOCKER_DB_NAME = props['DOCKER_DB_NAME']
                         env.DOCKER_DB_PORT_REMOTE = props['DOCKER_DB_PORT_REMOTE']
-                        echo "Dynamic environment variable as DOCKER_APP_PORT_REMOTE set to : ${env.DOCKER_APP_PORT_REMOTE}"
-                        echo "Dynamic environment variable as DOCKER_DB_USERNAME set to : ${env.DOCKER_DB_USERNAME}"
-                        echo "Dynamic environment variable as DOCKER_DB_PASSWORD set to : ${env.DOCKER_DB_PASSWORD}"
-                        echo "Dynamic environment variable as DOCKER_DB_NAME set to : ${env.DOCKER_DB_NAME}"
-                        echo "Dynamic environment variable as DOCKER_DB_PORT_REMOTE set to : ${env.DOCKER_DB_PORT_REMOTE}"
                     }
                 }
            }

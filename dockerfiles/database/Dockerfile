@@ -24,6 +24,7 @@ ENV MYSQL_USER $USERNAME
 ENV MYSQL_PASSWORD $PASSWORD
 ENV MYSQL_DATABASE $DATABASE
 
+# Utilizing the /docker-entrypoint-initdb.d directory: for query script
 # The official MySQL Docker image automatically executes .sh, .sql, and .sql.gz
 COPY ./init_db.sql/ /docker-entrypoint-initdb.d/
 
