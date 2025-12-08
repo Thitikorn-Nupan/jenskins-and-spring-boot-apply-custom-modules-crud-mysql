@@ -40,7 +40,7 @@ pipeline {
             stage('Checkout git repo') {
                 steps {
                     // Checks out the source code from your Git repository. *** Note, by default it will pull repo to C:\ProgramData\Jenkins\.jenkins\workspace\...
-                    git branch: 'ttknp', url: 'https://github.com/Thitikorn-Nupan/jenskins-and-spring-boot-apply-multiple-modules-crud-mysql.git'
+                    git branch: 'ttknp', url: 'https://github.com/Thitikorn-Nupan/jenskins-and-spring-boot-apply-custom-modules-crud-mysql.git'
                 }
             }
 
