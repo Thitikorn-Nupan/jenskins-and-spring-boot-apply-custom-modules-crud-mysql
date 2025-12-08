@@ -71,51 +71,18 @@
             <groupId>com.ttknp</groupId>
             <artifactId>web-custom-service</artifactId>
             <version>0.0.1</version>
-            <!--
-                ******
-                importance when build jar on jenkins pipeline
-                by default it won't see your custom dependency
-                you have to set <systemPath><path to your jar></systemPath>
-                because it's auto install to Downloading from central: https://repo.maven.apache.org/maven2/com/ttknp/valiadation-custom-service/0.0.1/valiadation-custom-service-0.0.1.pom
-                you know your custom it's on server (localhost) not https://repo.maven.apache.org/maven2/com/ttknp/
-                after you set systemPath it will go to install like Installing C:\ProgramData\Jenkins\.jenkins\workspace\basic-api-using-spring-boot-3-test\libs\valiadation-custom-service-0.0.1.jar to C:\WINDOWS\system32\config\systemprofile\.m2\repository\com\ttknp\valiadation-custom-service\0.0.1-SNAPSHOT\valiadation-custom-service-0.0.1-SNAPSHOT.jar
-            -->
-            <!--<scope>system</scope>
-            <systemPath>${basedir}/libs/web-custom-service-0.0.1.jar</systemPath>-->
         </dependency>
 
         <dependency>
             <groupId>com.ttknp</groupId>
             <artifactId>response-custom-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <!--
-                ******
-                importance when build jar on jenkins pipeline
-                by default it won't see your custom dependency
-                you have to set <systemPath><path to your jar></systemPath>
-                because it's auto install to Downloading from central: https://repo.maven.apache.org/maven2/com/ttknp/valiadation-custom-service/0.0.1/valiadation-custom-service-0.0.1.pom
-                you know your custom it's on server (localhost) not https://repo.maven.apache.org/maven2/com/ttknp/
-                after you set systemPath it will go to install like Installing C:\ProgramData\Jenkins\.jenkins\workspace\basic-api-using-spring-boot-3-test\libs\valiadation-custom-service-0.0.1.jar to C:\WINDOWS\system32\config\systemprofile\.m2\repository\com\ttknp\valiadation-custom-service\0.0.1-SNAPSHOT\valiadation-custom-service-0.0.1-SNAPSHOT.jar
-            -->
-            <!--<scope>system</scope>
-            <systemPath>${basedir}/libs/response-custom-service-0.0.1-SNAPSHOT.jar</systemPath>-->
         </dependency>
 
         <dependency>
             <groupId>com.ttknp</groupId>
             <artifactId>valiadation-custom-service</artifactId>
             <version>0.0.1</version>
-            <!--
-                ******
-                importance when build jar on jenkins pipeline
-                by default it won't see your custom dependency
-                you have to set <systemPath><path to your jar></systemPath>
-                because it's auto install to Downloading from central: https://repo.maven.apache.org/maven2/com/ttknp/valiadation-custom-service/0.0.1/valiadation-custom-service-0.0.1.pom
-                you know your custom it's on server (localhost) not https://repo.maven.apache.org/maven2/com/ttknp/
-                after you set systemPath it will go to install like Installing C:\ProgramData\Jenkins\.jenkins\workspace\basic-api-using-spring-boot-3-test\libs\valiadation-custom-service-0.0.1.jar to C:\WINDOWS\system32\config\systemprofile\.m2\repository\com\ttknp\valiadation-custom-service\0.0.1-SNAPSHOT\valiadation-custom-service-0.0.1-SNAPSHOT.jar
-            -->
-            <!--<scope>system</scope>
-            <systemPath>${basedir}/libs/valiadation-custom-service-0.0.1.jar</systemPath>-->
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -123,14 +90,14 @@
             <scope>annotationProcessor</scope>
         </dependency>
         <!-- Nested load dependency -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
