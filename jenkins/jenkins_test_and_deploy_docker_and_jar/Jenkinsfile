@@ -4,21 +4,12 @@ pipeline {
     agent any
     environment {
             // you have to call tru env.<var name> ex, env.DOMAIN
-            JAR_TARGET = 'target/api-using-crud-mysql-0.0.1-SNAPSHOT.jar'
+            JAR_TARGET = 'target/api-using-crud-mysql-v2-0.0.1-SNAPSHOT.jar'
             PATH_DEMO_PROPERTIES = 'B:\\env\\demo-info\\docker_info.properties'
     }
 
     // stages as working Flows tell Pipeline what gonna do
     stages {
-
-            stage('Before initial check software installed') {
-                steps {
-                      sh 'java -version'
-                      sh 'mvn -version'
-                      sh 'git --version'
-                      sh 'docker --version'
-                }
-            }
 
             stage('Before init get key from properties file') {
                 steps {
@@ -31,22 +22,25 @@ pipeline {
                         env.DOCKER_DB_NAME = props['DOCKER_DB_NAME']
                         env.DOCKER_DB_PORT_REMOTE = props['DOCKER_DB_PORT_REMOTE']
                     }
-                    post {
-                          success {
-                              echo 'After read properties successfully.'
-                          }
-                          failure {
-                              echo 'After read properties file failed.'
-                          }
-                    }
                 }
            }
+
+
+            stage('Before initial check software installed') {
+                steps {
+                      sh 'java -version'
+                      sh 'mvn -version'
+                      sh 'git --version'
+                      sh 'docker --version'
+                }
+            }
+
 
 
             stage('Checkout git repo') {
                 steps {
                     // Checks out the source code from your Git repository. *** Note, by default it will pull repo to C:\ProgramData\Jenkins\.jenkins\workspace\...
-                    git branch: 'ttknp', url: 'https://github.com/Thitikorn-Nupan/jenskins-and-spring-boot-apply-multiple-modules-crud-mysql.git'
+                    git branch: 'ttknp', url: 'https://github.com/Thitikorn-Nupan/jenskins-and-spring-boot-apply-custom-modules-crud-mysql.git'
                 }
             }
 
