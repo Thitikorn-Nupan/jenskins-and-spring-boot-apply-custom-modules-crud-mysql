@@ -4,7 +4,7 @@
 #
 #
 # Use the official MySQL image as a base # FROM have to the first line
-FROM mysql:latest
+FROM mysql:8.0.45
 LABEL authors="ttknp"
 
 RUN chown -R mysql:root /var/lib/mysql/
