@@ -25,7 +25,6 @@ pipeline {
                 }
            }
 
-
             stage('Before initial check software installed') {
                 steps {
                       sh 'java -version'
@@ -35,16 +34,12 @@ pipeline {
                 }
             }
 
-
-
             stage('Checkout git repo') {
                 steps {
                     // Checks out the source code from your Git repository. *** Note, by default it will pull repo to C:\ProgramData\Jenkins\.jenkins\workspace\...
                     git branch: 'ttknp', url: 'https://github.com/Thitikorn-Nupan/jenskins-and-spring-boot-apply-custom-modules-crud-mysql.git'
                 }
             }
-
-
 
             stage('Build docker container database') {
                 steps {
@@ -57,7 +52,6 @@ pipeline {
                      }
                 }
             }
-
 
 
            stage('Deploy docker image database') {
@@ -97,8 +91,6 @@ pipeline {
                 }
             }
 
-
-
             stage('Build docker container app') {
                 steps {
                     sh "docker build -t springboot:latest --build-arg JAR_FILE=${env.JAR_TARGET} --build-arg JDBC_USERNAME=${env.DOCKER_DB_USERNAME} --build-arg JDBC_PASSWORD=${env.DOCKER_DB_PASSWORD} --build-arg JDBC_DATABASE=${env.DOCKER_DB_NAME} . -f dockerfiles/app/Dockerfile"
@@ -110,8 +102,6 @@ pipeline {
                      }
                 }
             }
-
-
 
             stage('Deploy docker image app') {
                 steps {

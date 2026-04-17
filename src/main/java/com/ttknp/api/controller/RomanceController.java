@@ -1,6 +1,5 @@
 package com.ttknp.api.controller;
 
-
 import com.ttknp.api.entity.Romance;
 import com.ttknp.api.repository.ModelRepository;
 import com.ttknp.responsecustomservice.constant.CommonStatus;
